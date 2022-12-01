@@ -76,7 +76,15 @@
             <% if exception_hint %>
               <h2>Hint: <%= exception_hint %></h2>
             <% end %>
+
+
+            <div class="drgn">
+                <hr>
+                 <h2><strong>DRGN Error</h2>
+                <p><%=frame.instance_variables[:@cause]%></p>
+            </div>
         </header>
+
     </div>
 
     <section class="backtrace">
@@ -111,6 +119,7 @@
                     But you can
                     <a href='/__better_errors' target="_blank">open the interactive console in a new tab/window</a>.
                 </p>
+
                 <!-- this is enough information to show something in case JS doesn't get to load -->
                 <%== ErrorPage.render_template('variable_info', first_frame_variable_info) %>
             </div>
